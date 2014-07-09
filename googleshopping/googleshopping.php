@@ -417,10 +417,10 @@ class GoogleShopping extends Module
             
             $xml_googleshopping .= '<entry>' . "\n";
             $xml_googleshopping .= '<g:id>' . $product['id_product'] . '-' . $lang['iso_code'] . '</g:id>' . "\n";
-            $xml_googleshopping .= '<title>' . htmlentities(ucfirst(mb_strtolower($title_crop, self::CHARSET)), self::REPLACE_FLAGS, self::CHARSET) . '</title>' . "\n";
+            $xml_googleshopping .= '<title>' . '<![CDATA[' .htmlentities(ucfirst(mb_strtolower($title_crop, self::CHARSET)), self::REPLACE_FLAGS, self::CHARSET) . ']]>'.'</title>' . "\n";
             $xml_googleshopping .= '<link>' . htmlspecialchars($product_link, self::REPLACE_FLAGS, self::CHARSET, false) . '</link>' . "\n";
             $xml_googleshopping .= '<g:price>' . $price . '</g:price>' . "\n";
-            $xml_googleshopping .= '<g:description>' . htmlentities($description_crop, self::REPLACE_FLAGS, self::CHARSET) . '</g:description>' . "\n";
+            $xml_googleshopping .= '<g:description>' . '<![CDATA[' .htmlentities($description_crop, self::REPLACE_FLAGS, self::CHARSET) .']]>'. '</g:description>' . "\n";
             $xml_googleshopping .= '<g:condition>new</g:condition>' . "\n"; // condition = new, used, refurbished
 
             
